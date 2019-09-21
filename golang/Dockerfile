@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apk update \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
-    && apk add git procps \
+    && apk add git procps g++ \
     #
     # Install Go tools
     && go get -u -v \
