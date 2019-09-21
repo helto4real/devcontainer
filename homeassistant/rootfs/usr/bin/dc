@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Import
+for f in /usr/share/dc/*
+  do
+    source $f
+done
+
+function Help {
+  echo "
+  dc
+    Custom CLI used in this devcontainer
+
+  usage:
+    dc [command]
+
+  where [command] is one of:
+    start            This will start Home Assistant on port 9123.
+    check            This will run Home Assistant config check.
+    set-version      Install a spesific version of Home Assistant.
+    upgrade          Upgrade the installed Home Assistant version to the latest dev branch.
+    help             Shows this help
+  "
+}
+
+
+if [[ "$2" == "--help" ]]; then
+  Help
+  exit 0
+fi
+
+case $1 in
+
+    help | --help)
+        Help
+        ;;
+    preview | run | start)
+        StartHomeAssistant
+        ;;
+    check | check-config | config)
+        HomeAssistantConfigCheck
+        ;;
+    set-version | version | set)
+        SetHomeAssistantVersion
+        ;;
+    upgrade | update | install | reinstall)
+        UpdgradeHomeAssistantDev
+        ;;
+esac
