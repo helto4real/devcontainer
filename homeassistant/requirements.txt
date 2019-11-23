@@ -1,4 +1,4 @@
-black==19.3b0
+black==19.10b0
 colorlog==4.0.2
-pylint==2.3.1
-python-language-server==0.28.3
+pylint==2.4.4
+python-language-server==0.31.1
